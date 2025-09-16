@@ -4,7 +4,6 @@ package br.com.senai.entregas.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-public class Usuario {
 
     @Getter
     @Setter
@@ -21,7 +20,7 @@ public class Usuario {
     @Table(name = "tipo_usuario")
 
 
-    public class usuario {
+    public class Usuario {
 
 
         @Id
@@ -41,11 +40,15 @@ public class Usuario {
         private String senha;
 
 
-
-
-
+        // Muitos USUARIOS para um TIPO USUARIO
+        // FetchType.EAGER - Carrega os dados juntos
+        // Optional - Se e obrigatorio ou nao
+        @ManyToOne(fetch = FetchType.EAGER, optional = false)
+        // Avisar para o Java, qual coluna do tipo usuario que vou relacionar
+        @JoinColumn(name = "tipo_usuario_id")
+        private TipoUsuario tipoUsuario;
 
 
 
     }
-}
+

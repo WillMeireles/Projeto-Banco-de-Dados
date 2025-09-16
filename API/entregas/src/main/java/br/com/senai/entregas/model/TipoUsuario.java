@@ -11,6 +11,8 @@ import lombok.Setter;
 @Setter
 
 // Obrigatorio para o JPA funcionar
+// @NoArgsConstructor e obrigatorio
+// @AllArgsConstructor e opcional
 @NoArgsConstructor
 @AllArgsConstructor
 
@@ -19,7 +21,7 @@ import lombok.Setter;
 // Entity - Informa que essa classe e uma tabela
 @Entity
 // Table - Permite que voce configure a tabela
-@Table (name = "tipo_usuario")
+@Table(name = "tipo_usuario")
 
 
 public class TipoUsuario {
@@ -33,7 +35,7 @@ public class TipoUsuario {
 
     // Column - configura a coluna
     // name - nome da coluna
-    // nullable - se poder se nulo ou nao
+    // nullable - se pode ser nulo ou nao
 
     @Column(name = "tipo_usuario_id", nullable = false)
     private Integer tipoUsuarioId;
